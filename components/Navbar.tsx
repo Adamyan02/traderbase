@@ -20,7 +20,7 @@ export default function Navbar() {
 
         {/* Nav */}
         <nav className="flex gap-2">
-          {links.map((link) => {
+          {navigation.map((link) => {
             const isActive =
               pathname === link.href ||
               (link.href !== "/" && pathname.startsWith(link.href))
