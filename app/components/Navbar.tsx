@@ -28,10 +28,15 @@ export default function Navbar() {
             key={link.href}
             href={link.href}
             className={`
+              relative
+              inline-flex
+              items-center
+              py-2
               transition
-              ${isActive
-                ? "text-blue-400 font-semibold border-b border-blue-400 pb-1"
-                : "text-slate-300 hover:text-white"
+              ${
+                isActive
+                  ? "text-blue-400 font-semibold after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-blue-400"
+                  : "text-slate-300 hover:text-white"
               }
             `}
           >
