@@ -1,5 +1,24 @@
+import Link from "next/link"
 export default function Home() {
   return (
+    const beginnerArticles = [
+  {
+    title: "Как выбрать криптобиржу",
+    href: "/learning/how-to-choose-exchange",
+  },
+  {
+    title: "Что такое риск на сделку",
+    href: "/learning/risk-management",
+  },
+  {
+    title: "Финансовая подушка",
+    href: "/learning/emergency-fund",
+  },
+  {
+    title: "Ошибки новичков",
+    href: "/learning/beginner-mistakes",
+  },
+]
     <main className="min-h-screen bg-slate-950 text-white">
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 py-24 text-center">
@@ -39,6 +58,28 @@ export default function Home() {
         </h3>
 
         <div className="grid md:grid-cols-4 gap-6">
+  {beginnerArticles.map((article) => (
+    <Link
+      key={article.href}
+      href={article.href}
+      className="
+        bg-slate-900
+        p-6
+        rounded-2xl
+        border
+        border-slate-800
+        hover:border-blue-500
+        hover:-translate-y-1
+        transition-all
+        duration-200
+      "
+    >
+      <h4 className="font-semibold">
+        {article.title}
+      </h4>
+    </Link>
+  ))}
+</div>
           {[
             "Как выбрать криптобиржу",
             "Что такое риск на сделку",
