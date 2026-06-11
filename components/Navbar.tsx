@@ -6,17 +6,6 @@ import { navigation } from "@/data/navigation"
 
 export default function Navbar() {
   const pathname = usePathname()
-
-  const links = [
-    { href: "/", label: "Главная" },
-    { href: "/learning", label: "Обучение" },
-    { href: "/practice", label: "Практика" },
-    { href: "/blog", label: "Блог" },
-    { href: "/exchanges", label: "Биржи" },
-    { href: "/finance", label: "Финансы" },
-    { href: "/about", label: "О проекте" },
-  ]
-
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
