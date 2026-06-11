@@ -1,25 +1,6 @@
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      {/* Header */}
-      <header className="border-b border-slate-800">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-          <h1 className="text-2xl font-bold tracking-wide">
-            TRADERBASE
-          </h1>
-
-          <nav className="hidden md:flex gap-6 text-sm">
-            <a href="#">Главная</a>
-            <a href="#">Обучение</a>
-            <a href="#">Практика</a>
-            <a href="#">Блог</a>
-            <a href="#">Биржи</a>
-            <a href="#">Финансы</a>
-            <a href="#">О проекте</a>
-          </nav>
-        </div>
-      </header>
-
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 py-24 text-center">
         <h2 className="text-5xl font-bold mb-6">
