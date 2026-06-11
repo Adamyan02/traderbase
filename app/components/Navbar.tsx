@@ -17,32 +17,28 @@ export default function Navbar() {
   ]
 
   return (
-    <header className="border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">TRADERBASE</h1>
+    <nav className="hidden md:flex gap-6 text-sm">
+      {links.map((link) => {
+        const isActive =
+          pathname === link.href ||
+          (link.href !== "/" && pathname.startsWith(link.href))
 
-        <nav className="hidden md:flex gap-6 text-sm">
-          {links.map((link) => {
-            const isActive =
-              pathname === link.href ||
-              (link.href !== "/" && pathname.startsWith(link.href))
-
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={
-                  isActive
-                    ? "text-blue-400 font-semibold"
-                    : "text-slate-300 hover:text-white"
-                }
-              >
-                {link.label}
-              </Link>
-            )
-          })}
-        </nav>
-      </div>
-    </header>
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={`
+              transition
+              ${isActive
+                ? "text-blue-400 font-semibold border-b border-blue-400 pb-1"
+                : "text-slate-300 hover:text-white"
+              }
+            `}
+          >
+            {link.label}
+          </Link>
+        )
+      })}
+    </nav>
   )
 }
