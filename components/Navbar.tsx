@@ -18,15 +18,15 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         {/* Logo */}
-        <div className="font-bold text-lg tracking-wide">
+        <div className="text-white font-bold tracking-wide text-lg">
           TRADERBASE
         </div>
 
-        {/* Menu */}
-        <nav className="flex gap-6 text-sm">
+        {/* Nav */}
+        <nav className="flex gap-2">
           {links.map((link) => {
             const isActive =
               pathname === link.href ||
@@ -37,19 +37,15 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`
-                  relative transition
-                  ${isActive
-                    ? "text-blue-400 font-semibold"
-                    : "text-slate-300 hover:text-white"
+                  px-4 py-2 rounded-xl text-sm transition-all
+                  ${
+                    isActive
+                      ? "bg-blue-500 text-white shadow-md"
+                      : "text-slate-300 hover:bg-slate-800 hover:text-white"
                   }
                 `}
               >
                 {link.label}
-
-                {/* active underline */}
-                {isActive && (
-                  <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-blue-400" />
-                )}
               </Link>
             )
           })}
