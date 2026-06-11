@@ -17,33 +17,41 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="relative z-[9999] flex gap-6 text-sm bg-red-500">
-      {links.map((link) => {
-        const isActive =
-          pathname === link.href ||
-          (link.href !== "/" && pathname.startsWith(link.href))
+    <header className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-        return (
-          <Link
-            key={link.href}
-            href={link.href}
-            className={`
-              relative
-              inline-flex
-              items-center
-              py-2
-              transition
-              ${
-                isActive
-                  ? "text-blue-400 font-semibold after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-blue-400"
-                  : "text-slate-300 hover:text-white"
-              }
-            `}
-          >
-            {link.label}
-          </Link>
-        )
-      })}
-    </nav>
+        {/* Logo */}
+        <div className="text-white font-bold tracking-wide text-lg">
+          TRADERBASE
+        </div>
+
+        {/* Nav */}
+        <nav className="flex gap-2">
+          {links.map((link) => {
+            const isActive =
+              pathname === link.href ||
+              (link.href !== "/" && pathname.startsWith(link.href))
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`
+                  px-4 py-2 rounded-xl text-sm transition-all
+                  ${
+                    isActive
+                      ? "bg-blue-500 text-white shadow-md"
+                      : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                  }
+                `}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
+        </nav>
+
+      </div>
+    </header>
   )
 }
