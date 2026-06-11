@@ -1,149 +1,449 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CryptoNews RU — криптовалюта и инвестиции</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #111;
+<title>TraderBase</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#0F172A;
+    color:#F8FAFC;
+    line-height:1.6;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+header{
+    border-bottom:1px solid #1E293B;
+    padding:20px 0;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.menu{
+    display:flex;
+    gap:25px;
+}
+
+.menu a{
+    color:#F8FAFC;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#3B82F6;
+}
+
+.language{
+    color:#94A3B8;
+}
+
+.hero{
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h1{
+    font-size:58px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#94A3B8;
+    font-size:20px;
+}
+
+.hero-buttons{
+    margin-top:40px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    margin:10px;
+    font-weight:600;
+}
+
+.btn-primary{
+    background:#3B82F6;
+    color:white;
+}
+
+.btn-secondary{
+    border:1px solid #334155;
+    color:white;
+}
+
+.search{
+    margin:40px auto;
+    max-width:700px;
+}
+
+.search input{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:12px;
+    background:#1E293B;
+    color:white;
+    font-size:16px;
+}
+
+.section{
+    padding:70px 0;
+}
+
+.section-title{
+    font-size:34px;
+    margin-bottom:30px;
+}
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.category{
+    background:#1E293B;
+    padding:30px;
+    border-radius:18px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+}
+
+.category h3{
+    margin-bottom:10px;
+}
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#1E293B;
+    border-radius:18px;
+    padding:25px;
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#94A3B8;
+}
+
+.stats{
+    margin-top:15px;
+    color:#94A3B8;
+}
+
+.exchange-card{
+    background:#1E293B;
+    border-radius:18px;
+    padding:25px;
+}
+
+.exchange-card h3{
+    margin-bottom:15px;
+}
+
+.rating{
+    color:#3B82F6;
+    font-weight:700;
+}
+
+.about{
+    background:#111827;
+    padding:60px;
+    border-radius:24px;
+}
+
+.about p{
+    color:#CBD5E1;
+    margin-top:20px;
+}
+
+footer{
+    margin-top:80px;
+    border-top:1px solid #1E293B;
+    padding:40px 0;
+    text-align:center;
+    color:#94A3B8;
+}
+
+@media(max-width:900px){
+
+    .menu{
+        display:none;
     }
 
-    header {
-      border-bottom: 1px solid #eee;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .hero h1{
+        font-size:40px;
     }
 
-    header h1 {
-      font-size: 18px;
-      margin: 0;
+    .categories{
+        grid-template-columns:1fr;
     }
 
-    nav a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: #1a56db;
-      font-size: 14px;
+    .card-grid{
+        grid-template-columns:1fr;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      padding: 20px;
-      gap: 20px;
-    }
+}
 
-    .main {
-      flex: 3;
-    }
-
-    .sidebar {
-      flex: 1;
-      border-left: 1px solid #eee;
-      padding-left: 20px;
-    }
-
-    .card {
-      border: 1px solid #eee;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-    }
-
-    .card h2 {
-      margin: 0 0 10px 0;
-      font-size: 18px;
-    }
-
-    .tag {
-      font-size: 12px;
-      color: #666;
-    }
-
-    .ad {
-      background: #f5f5f5;
-      padding: 15px;
-      margin-top: 30px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 12px;
-      color: #777;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>CryptoNews RU</h1>
-  <nav>
-    <a href="#">Bitcoin</a>
-    <a href="#">Крипто</a>
-    <a href="#">Инвестиции</a>
-    <a href="#">Психология</a>
-  </nav>
-</header>
 
-<div class="container">
+<div class="container navbar">
 
-  <!-- MAIN -->
-  <div class="main">
+<div class="logo">
+TRADERBASE
+</div>
 
-    <div class="card">
-      <div class="tag">Bitcoin</div>
-      <h2>Биткоин: что это и как он работает</h2>
-      <p>Простое объяснение блокчейна и цифровой валюты без банков.</p>
-    </div>
+<nav class="menu">
+<a href="#">Главная</a>
+<a href="#">Криптовалюта</a>
+<a href="#">Трейдинг</a>
+<a href="#">Инвестиции</a>
+<a href="#">Финансы</a>
+<a href="#">Биржи</a>
+<a href="#">О проекте</a>
+</nav>
 
-    <div class="card">
-      <div class="tag">Психология</div>
-      <h2>Психология инвестора: почему люди теряют деньги</h2>
-      <p>Страх, жадность и FOMO — главные враги трейдера.</p>
-    </div>
-
-    <div class="card">
-      <div class="tag">Крипто</div>
-      <h2>Лучшие криптобиржи 2026 года</h2>
-      <p>Обзор платформ для покупки и торговли криптовалютой.</p>
-    </div>
-
-    <div class="ad">
-      💰 Здесь будет реклама / партнёрские ссылки
-    </div>
-
-  </div>
-
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <h3>Популярное</h3>
-
-    <p>🔥 Как купить Bitcoin</p>
-    <p>🔥 Что такое Ethereum</p>
-    <p>🔥 Как начать инвестировать</p>
-    <p>🔥 Ошибки трейдеров</p>
-
-    <div class="ad">
-      📈 Реклама биржи / сервиса
-    </div>
-  </div>
+<div class="language">
+RU | EN
+</div>
 
 </div>
 
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+<h1>Практические знания для трейдеров и инвесторов</h1>
+
+<p>
+Криптовалюты, трейдинг, инвестиции и управление личными финансами без сигналов и пустых обещаний.
+</p>
+
+<div class="hero-buttons">
+<a href="#" class="btn btn-primary">Начать обучение</a>
+<a href="#" class="btn btn-secondary">Обзоры бирж</a>
+</div>
+
+</div>
+
+</section>
+
+<div class="container search">
+<input type="text" placeholder="Поиск по сайту...">
+</div>
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">Категории</h2>
+
+<div class="categories">
+
+<div class="category">
+<h3>Криптовалюта</h3>
+<p>Биржи, кошельки, спот и фьючерсы</p>
+</div>
+
+<div class="category">
+<h3>Трейдинг</h3>
+<p>Психология и риск-менеджмент</p>
+</div>
+
+<div class="category">
+<h3>Инвестиции</h3>
+<p>Долгосрочные стратегии</p>
+</div>
+
+<div class="category">
+<h3>Финансы</h3>
+<p>Бюджет и финансовая подушка</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">🔥 Популярные статьи</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>Почему большинство теряет деньги на фьючерсах</h3>
+<p>Разбор основных ошибок новичков.</p>
+<div class="stats">👁 12 453 | 👍 371</div>
+</div>
+
+<div class="card">
+<h3>Что такое риск на сделку</h3>
+<p>Основы управления капиталом.</p>
+<div class="stats">👁 8 251 | 👍 214</div>
+</div>
+
+<div class="card">
+<h3>Как выбрать криптобиржу</h3>
+<p>На что обращать внимание новичку.</p>
+<div class="stats">👁 6 842 | 👍 190</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">Последние статьи</h2>
+
+<div class="card-grid">
+
+<div class="card">
+<h3>Финансовая подушка</h3>
+<p>Сколько денег должно быть в резерве.</p>
+</div>
+
+<div class="card">
+<h3>Почему стоп обязателен</h3>
+<p>Ошибка большинства трейдеров.</p>
+</div>
+
+<div class="card">
+<h3>Психология убытков</h3>
+<p>Как переживать просадки.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">Обзоры бирж</h2>
+
+<div class="card-grid">
+
+<div class="exchange-card">
+<h3>Bybit</h3>
+<div class="rating">⭐ 9.2</div>
+</div>
+
+<div class="exchange-card">
+<h3>OKX</h3>
+<div class="rating">⭐ 8.9</div>
+</div>
+
+<div class="exchange-card">
+<h3>Bitget</h3>
+<div class="rating">⭐ 8.6</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="about">
+
+<h2>О проекте</h2>
+
+<p>
+TraderBase — независимая база знаний по криптовалютам,
+трейдингу, инвестициям и управлению личными финансами.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
 <footer>
-  © 2026 CryptoNews RU — все права защищены
+
+<div class="container">
+
+<p>
+© 2026 TraderBase
+</p>
+
+<p>
+Контакты • Политика конфиденциальности
+</p>
+
+</div>
+
 </footer>
 
 </body>
