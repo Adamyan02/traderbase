@@ -1,13 +1,23 @@
-export default function Page() {
-  return (
-    <main className="max-w-5xl mx-auto px-6 py-12">
-      <h1 className="text-4xl font-bold mb-4">
-        Страница в разработке
-      </h1>
+import Link from "next/link"
 
-      <p className="text-slate-400">
-        Контент будет добавлен позже.
-      </p>
+export default function Page() {
+  const exchanges = ["binance", "bybit", "okx"]
+
+  return (
+    <main>
+      <h1>Биржи</h1>
+
+      <div className="grid gap-4 mt-6">
+        {exchanges.map((ex) => (
+          <Link
+            key={ex}
+            href={`/exchanges/${ex}`}
+            className="block p-4 bg-slate-900 rounded-xl"
+          >
+            {ex.toUpperCase()}
+          </Link>
+        ))}
+      </div>
     </main>
   )
 }
