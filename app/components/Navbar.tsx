@@ -17,7 +17,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="flex gap-6 text-sm">
+    <nav className="relative z-[9999] flex gap-6 text-sm bg-red-500">
       {links.map((link) => {
         const isActive =
           pathname === link.href ||
