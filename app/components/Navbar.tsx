@@ -17,7 +17,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="hidden md:flex gap-6 text-sm">
+    <nav className="flex gap-6 text-sm">
       {links.map((link) => {
         const isActive =
           pathname === link.href ||
