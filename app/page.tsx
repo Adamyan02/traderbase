@@ -1,7 +1,6 @@
 import Link from "next/link"
 export default function Home() {
-  return (
-    const beginnerArticles = [
+  const beginnerArticles = [
   {
     title: "Как выбрать криптобиржу",
     href: "/learning/how-to-choose-exchange",
@@ -19,7 +18,7 @@ export default function Home() {
     href: "/learning/beginner-mistakes",
   },
 ]
-    <main className="min-h-screen bg-slate-950 text-white">
+  return (
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 py-24 text-center">
         <h2 className="text-5xl font-bold mb-6">
