@@ -34,15 +34,20 @@ export default function Home() {
         </p>
 
         <div className="mt-10 flex justify-center gap-4 flex-wrap">
-          <button className="bg-blue-500 px-6 py-3 rounded-xl font-medium">
-            Начать обучение
-          </button>
+  <Link
+    href="/learning"
+    className="bg-blue-500 px-6 py-3 rounded-xl font-medium"
+  >
+    Начать обучение
+  </Link>
 
-          <button className="border border-slate-700 px-6 py-3 rounded-xl">
-            Обзоры бирж
-          </button>
-        </div>
-      </section>
+  <Link
+    href="/exchanges"
+    className="border border-slate-700 px-6 py-3 rounded-xl"
+  >
+    Обзоры бирж
+  </Link>
+</div>
 
       {/* Поиск */}
       <section className="max-w-4xl mx-auto px-6">
